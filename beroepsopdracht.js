@@ -9,7 +9,7 @@ const story = [
   "Daniel heeft eindelijk de financiering en de uitrusting bij elkaar om zijn zoektocht te beginnen. Moet hij zijn reis alleen maken of iemand meenemen voor hulp en gezelschap?",
   "Alleen gaan.\nIemand meenemen.",
   "Daniel heeft besloten om zijn beste vriend Mark mee te nemen op zijn reis. Ze staan aan het begin van de jungle. Moet Daniel de gemakkelijke, bekende route nemen of de avontuurlijke, onbekende route?",
-  "De gemakkelijke, bekende route.\nDe avontuurlijke, onbekende route.",
+  "De gemakkelijke.\nDe avontuurlijke.",
   "Tijdens hun reis merken Daniel en Mark dat ze een rivier moeten oversteken. Moeten ze een stevige brug proberen te vinden of de rivier met een zelfgemaakt vlot oversteken?",
   "Een brug vinden.\nEen vlot maken.",
   "Terwijl ze diep in de jungle zijn, horen ze vreemde geluiden van dieren in de verte. Moeten ze het geluid volgen om te ontdekken wat het is of zich stilhouden en hun koers vervolgen?",
