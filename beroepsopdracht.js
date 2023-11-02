@@ -3,14 +3,14 @@ const readlineSync = require('readline-sync');
 function startGame() {
   console.log("Je wordt wakker en merkt dat je je in een vreemde omgeving bevindt. Alles om je heen is donker, en je hebt geen idee hoe je hier terecht bent gekomen.");
   console.log("Je hoort geluiden in de verte, en het lijkt erop dat je niet alleen bent. Wat wil je doen?");
-  console.log("a. Probeer te bewegen in de richting van de geluiden.");
-  console.log("b. Blijf stil liggen en probeer te begrijpen waar je bent.");
+  console.log("1. Probeer te bewegen in de richting van de geluiden.");
+  console.log("2. Blijf stil liggen en probeer te begrijpen waar je bent.");
 
   const answer = getUserInput();
 
-  if (answer === 'a') {
+  if (answer === '1') {
     exploreEnvironment();
-  } else if (answer === 'b') {
+  } else if (answer === '2') {
     tryToUnderstand();
   } else {
     invalidInput();
@@ -21,14 +21,14 @@ function exploreEnvironment() {
   console.log("Voorzichtig sta je op en probeert je een weg te banen door de duisternis. Na een tijdje kom je aan bij een verlichte ruimte.");
   console.log("In deze kamer zie je vreemde machines en knipperende schermen. Het lijkt wel een laboratorium.");
   console.log("Wat wil je doen?");
-  console.log("a. Onderzoek de machines en schermen.");
-  console.log("b. Verlaat de kamer en ga verder op verkenning.");
+  console.log("1. Onderzoek de machines en schermen.");
+  console.log("2. Verlaat de kamer en ga verder op verkenning.");
 
   const answer = getUserInput();
 
-  if (answer === 'a') {
+  if (answer === '1') {
     examineLab();
-  } else if (answer === 'b') {
+  } else if (answer === '2') {
     continueExploring();
   } else {
     invalidInput();
@@ -38,14 +38,14 @@ function exploreEnvironment() {
 function tryToUnderstand() {
   console.log("Je probeert te luisteren naar de geluiden om je heen en merkt op dat het klinkt als een druk laboratorium.");
   console.log("Misschien ben je in een experiment beland. Wat wil je doen?");
-  console.log("a. Wachten om te zien of er iemand komt.");
-  console.log("b. Ga op verkenning in de duisternis.");
+  console.log("1. Wachten om te zien of er iemand komt.");
+  console.log("2. Ga op verkenning in de duisternis.");
 
   const answer = getUserInput();
 
-  if (answer === 'a') {
+  if (answer === '1') {
     waitForHelp();
-  } else if (answer === 'b') {
+  } else if (answer === '2') {
     exploreEnvironment();
   } else {
     invalidInput();
@@ -56,14 +56,14 @@ function examineLab() {
   console.log("Terwijl je de machines en schermen onderzoekt, hoor je voetstappen achter je. Je draait je om en ziet een wetenschapper in een witte jas.");
   console.log("Hij lijkt verbaasd dat je hier bent en stelt zich voor als Dr. Alexander. Hij legt uit dat je deelneemt aan een experiment om tijdreizen te testen.");
   console.log("Wat wil je doen?");
-  console.log("a. Geloof Dr. Alexander en stel vragen over het experiment.");
-  console.log("b. Probeer te ontsnappen uit het laboratorium.");
+  console.log("1. Geloof Dr. Alexander en stel vragen over het experiment.");
+  console.log("2. Probeer te ontsnappen uit het laboratorium.");
 
   const answer = getUserInput();
 
-  if (answer === 'a') {
+  if (answer === '1') {
     askAboutTimeTravelExperiment();
-  } else if (answer === 'b') {
+  } else if (answer === '2') {
     escapeFromLab();
   } else {
     invalidInput();
@@ -73,14 +73,14 @@ function examineLab() {
 function continueExploring() {
   console.log("Je verlaat de verlichte kamer en gaat verder met je verkenningstocht. Terwijl je door de donkere gangen sluipt, kom je een mysterieuze deur tegen.");
   console.log("Wat wil je doen?");
-  console.log("a. Probeer de deur te openen.");
-  console.log("b. Keer terug naar de verlichte kamer.");
+  console.log("1. Probeer de deur te openen.");
+  console.log("2. Keer terug naar de verlichte kamer.");
 
   const answer = getUserInput();
 
-  if (answer === 'a') {
+  if (answer === '1') {
     openMysteriousDoor();
-  } else if (answer === 'b') {
+  } else if (answer === '2') {
     exploreEnvironment();
   } else {
     invalidInput();
@@ -91,14 +91,14 @@ function waitForHelp() {
   console.log("Je besluit te wachten in de hoop dat iemand je komt redden. Na enige tijd komt Dr. Alexander terug met medische apparatuur.");
   console.log("Hij zegt dat het experiment fout is gegaan en dat ze je zullen helpen terwijl ze proberen de situatie te herstellen.");
   console.log("Wat wil je doen?");
-  console.log("a. Vertrouw Dr. Alexander en laat je behandelen.");
-  console.log("b. Blijf argwanend en probeer te ontsnappen.");
+  console.log("1. Vertrouw Dr. Alexander en laat je behandelen.");
+  console.log("2. Blijf argwanend en probeer te ontsnappen.");
 
   const answer = getUserInput();
 
-  if (answer === 'a') {
+  if (answer === '1') {
     trustDoctorAndReceiveTreatment();
-  } else if (answer === 'b') {
+  } else if (answer === '2') {
     escapeFromLab();
   } else {
     invalidInput();
@@ -109,14 +109,14 @@ function askAboutTimeTravelExperiment() {
   console.log("Je begint Dr. Alexander vragen te stellen over het tijdreisexperiment en probeert meer te weten te komen over hoe je hier bent beland.");
   console.log("Hij legt uit dat het experiment niet helemaal is verlopen zoals gepland, en dat je nu vastzit in een andere tijdlijn.");
   console.log("Wat wil je doen?");
-  console.log("a. Werk samen met Dr. Alexander om een oplossing te vinden.");
-  console.log("b. Probeer op eigen kracht een manier te vinden om naar huis terug te keren.");
+  console.log("1. Werk samen met Dr. Alexander om een oplossing te vinden.");
+  console.log("2. Probeer op eigen kracht een manier te vinden om naar huis terug te keren.");
 
   const answer = getUserInput();
 
-  if (answer === 'a') {
+  if (answer === '1') {
     cooperateWithDoctor();
-  } else if (answer === 'b') {
+  } else if (answer === '2') {
     findYourOwnWay();
   } else {
     invalidInput();
@@ -126,14 +126,14 @@ function askAboutTimeTravelExperiment() {
 function escapeFromLab() {
   console.log("Je probeert te ontsnappen uit het laboratorium. Terwijl je door de gangen rent, kom je verschillende bewakers en camera's tegen.");
   console.log("Het lijkt erop dat ze je niet willen laten gaan. Wat wil je doen?");
-  console.log("a. Ga door met je ontsnappingspoging en vecht tegen de bewakers.");
-  console.log("b. Keer terug naar Dr. Alexander en vraag om hulp bij je ontsnapping.");
+  console.log("1. Ga door met je ontsnappingspoging en vecht tegen de bewakers.");
+  console.log("2. Keer terug naar Dr. Alexander en vraag om hulp bij je ontsnapping.");
 
   const answer = getUserInput();
 
-  if (answer === 'a') {
+  if (answer === '1') {
     fightGuards();
-  } else if (answer === 'b') {
+  } else if (answer === '2') {
     seekHelpFromDoctor();
   } else {
     invalidInput();
@@ -143,14 +143,14 @@ function escapeFromLab() {
 function openMysteriousDoor() {
   console.log("Je probeert de mysterieuze deur te openen en ontdekt een geheime kamer met allerlei technologische apparatuur.");
   console.log("Dit zou weleens de sleutel kunnen zijn tot je ontsnapping. Wat wil je doen?");
-  console.log("a. Onderzoek de technologische apparatuur.");
-  console.log("b. Sluit de deur en keer terug naar de verlichte kamer.");
+  console.log("1. Onderzoek de technologische apparatuur.");
+  console.log("2. Sluit de deur en keer terug naar de verlichte kamer.");
 
   const answer = getUserInput();
 
-  if (answer === 'a') {
+  if (answer === '1') {
     investigateTechnology();
-  } else if (answer === 'b') {
+  } else if (answer === '2') {
     exploreEnvironment();
   } else {
     invalidInput();
@@ -184,14 +184,14 @@ function findYourOwnWay() {
 function fightGuards() {
   console.log("Je probeert te vechten tegen de bewakers, maar ze overmeesteren je en brengen je terug naar de verlichte kamer.");
   console.log("Je hebt gefaald in je ontsnappingspoging. Wat wil je nu doen?");
-  console.log("a. Probeer opnieuw te ontsnappen.");
-  console.log("b. Werk samen met Dr. Alexander om een oplossing te vinden.");
+  console.log("1. Probeer opnieuw te ontsnappen.");
+  console.log("2. Werk samen met Dr. Alexander om een oplossing te vinden.");
 
   const answer = getUserInput();
 
-  if (answer === 'a') {
+  if (answer === '1') {
     escapeFromLab();
-  } else if (answer === 'b') {
+  } else if (answer === '2') {
     seekHelpFromDoctor();
   } else {
     invalidInput();
@@ -216,12 +216,12 @@ function investigateTechnology() {
 
 function playAgain() {
   console.log("Wil je het avontuur opnieuw spelen?");
-  console.log("a. Ja");
-  console.log("b. Nee");
+  console.log("1. Ja");
+  console.log("2. Nee");
 
   const answer = getUserInput();
 
-  if (answer === 'a') {
+  if (answer === '1') {
     startGame();
   } else {
     console.log("Bedankt voor het spelen van het avontuur. Tot de volgende keer!");
@@ -229,7 +229,7 @@ function playAgain() {
 }
 
 function getUserInput() {
-  let answer = readlineSync.question('Welke keuze maak je? (A / B): ').toLowerCase();
+  let answer = readlineSync.question('Welke keuze maak je? (1 / 2): ');
   return answer;
 }
 
