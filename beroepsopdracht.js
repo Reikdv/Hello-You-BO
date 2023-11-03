@@ -214,6 +214,22 @@ function investigateTechnology() {
   playAgain();
 }
 
+function goodEnding() {
+  console.log("Na al je avonturen en uitdagingen, slaag je erin om veilig terug te keren naar je eigen tijdlijn.");
+  console.log("Je bent opgelucht en beseft dat je dit onvergetelijke avontuur hebt overleefd.");
+  console.log("Gefeliciteerd, je hebt de tijdreisavontuur met een goed einde afgerond!");
+
+  playAgain();
+}
+
+function badEnding() {
+  console.log("Helaas is het je niet gelukt om te ontsnappen, en je blijft gevangen in deze vreemde tijdlijn.");
+  console.log("Je hebt gefaald in je pogingen om terug te keren naar je eigen tijd.");
+  console.log("Bedankt voor het spelen van het avontuur. Misschien kun je het de volgende keer opnieuw proberen.");
+
+  playAgain();
+}
+
 function playAgain() {
   console.log("Wil je het avontuur opnieuw spelen?");
   console.log("1. Ja");
