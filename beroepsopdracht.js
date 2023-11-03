@@ -1,252 +1,424 @@
 const readlineSync = require('readline-sync');
 
 function startGame() {
-  console.log("Je wordt wakker en merkt dat je je in een vreemde omgeving bevindt. Alles om je heen is donker, en je hebt geen idee hoe je hier terecht bent gekomen.");
-  console.log("Je hoort geluiden in de verte, en het lijkt erop dat je niet alleen bent. Wat wil je doen?");
-  console.log("1. Probeer te bewegen in de richting van de geluiden.");
-  console.log("2. Blijf stil liggen en probeer te begrijpen waar je bent.");
+  console.log("Je ontwaakt in een bos en ziet een groep middeleeuwse ridders naderen. Wat doe je?");
+  console.log("A. Verstop je in de struiken.");
+  console.log("B. Benader de ridders om hulp te vragen.");
 
   const answer = getUserInput();
 
-  if (answer === '1') {
-    exploreEnvironment();
-  } else if (answer === '2') {
-    tryToUnderstand();
+  if (answer === 'A') {
+    hideInTheBushes();
+  } else if (answer === 'B') {
+    approachKnightsForHelp();
   } else {
     invalidInput();
   }
 }
 
-function exploreEnvironment() {
-  console.log("Voorzichtig sta je op en probeert je een weg te banen door de duisternis. Na een tijdje kom je aan bij een verlichte ruimte.");
-  console.log("In deze kamer zie je vreemde machines en knipperende schermen. Het lijkt wel een laboratorium.");
-  console.log("Wat wil je doen?");
-  console.log("1. Onderzoek de machines en schermen.");
-  console.log("2. Verlaat de kamer en ga verder op verkenning.");
+function hideInTheBushes() {
+  console.log("Je verstopt je in de struiken terwijl de ridders passeren. Ze lijken je niet op te merken en verdwijnen in de verte.");
+  console.log("Wat is je volgende stap?");
+  console.log("A. Verken het bos op zoek naar aanwijzingen.");
+  console.log("B. Volg de ridders om te zien waar ze heengaan.");
 
   const answer = getUserInput();
 
-  if (answer === '1') {
-    examineLab();
-  } else if (answer === '2') {
+  if (answer === 'A') {
+    exploreTheForest();
+  } else if (answer === 'B') {
+    followTheKnights();
+  } else {
+    invalidInput();
+  }
+}
+
+function approachKnightsForHelp() {
+  console.log("Je benadert de ridders en vraagt om hun hulp. Ze negeren je echter en verdwijnen in de verte.");
+  console.log("Wat is je volgende stap?");
+  console.log("A. Verken het bos op zoek naar aanwijzingen.");
+  console.log("B. Volg de ridders om te zien waar ze heengaan.");
+
+  const answer = getUserInput();
+
+  if (answer === 'A') {
+    exploreTheForest();
+  } else if (answer === 'B') {
+    followTheKnights();
+  } else {
+    invalidInput();
+  }
+}
+
+function exploreTheForest() {
+  console.log("Terwijl je door het bos loopt, ontdek je een oud en verlaten huisje. Binnen vind je een kaart die leidt naar een nabijgelegen dorp.");
+  console.log("Wat wil je doen?");
+  console.log("A. Volg de kaart naar het dorp.");
+  console.log("B. Ga terug naar de bosrand en volg de ridders.");
+
+  const answer = getUserInput();
+
+  if (answer === 'A') {
+    followTheMapToVillage();
+  } else if (answer === 'B') {
+    followTheKnights();
+  } else {
+    invalidInput();
+  }
+}
+
+function followTheKnights() {
+  console.log("Je besluit de ridders te volgen om te zien waar ze heengaan. Je komt uiteindelijk aan in een middeleeuws dorp.");
+  console.log("Hoe benader je de inwoners van het dorp?");
+  console.log("A. Verberg je en observeer ze van een afstand.");
+  console.log("B. Ga rechtstreeks naar het dorp en vraag om hulp.");
+
+  const answer = getUserInput();
+
+  if (answer === 'A') {
+    observeTheVillage();
+  } else if (answer === 'B') {
+    enterTheVillage();
+  } else {
+    invalidInput();
+  }
+}
+
+function followTheMapToVillage() {
+  console.log("Je volgt de kaart naar het nabijgelegen dorp. De inwoners verwelkomen je vriendelijk en bieden je een maaltijd aan.");
+  console.log("Accepteer je hun gastvrijheid?");
+  console.log("A. Ja, ga mee naar het dorp.");
+  console.log("B. Nee, bedank ze vriendelijk en ga verder.");
+
+  const answer = getUserInput();
+
+  if (answer === 'A') {
+    enterTheVillage();
+  } else if (answer === 'B') {
     continueExploring();
   } else {
     invalidInput();
   }
 }
 
-function tryToUnderstand() {
-  console.log("Je probeert te luisteren naar de geluiden om je heen en merkt op dat het klinkt als een druk laboratorium.");
-  console.log("Misschien ben je in een experiment beland. Wat wil je doen?");
-  console.log("1. Wachten om te zien of er iemand komt.");
-  console.log("2. Ga op verkenning in de duisternis.");
+function observeTheVillage() {
+  console.log("Je besluit je te verbergen en observeert de inwoners van het dorp van een afstand. Ze lijken vredig te leven in deze tijd.");
+  console.log("Wat wil je nu doen?");
+  console.log("A. Blijf observeren en leer meer over de middeleeuwse samenleving.");
+  console.log("B. Verlaat je schuilplaats en benader de dorpelingen.");
 
   const answer = getUserInput();
 
-  if (answer === '1') {
-    waitForHelp();
-  } else if (answer === '2') {
-    exploreEnvironment();
+  if (answer === 'A') {
+    observeMore();
+  } else if (answer === 'B') {
+    enterTheVillage();
   } else {
     invalidInput();
   }
 }
 
-function examineLab() {
-  console.log("Terwijl je de machines en schermen onderzoekt, hoor je voetstappen achter je. Je draait je om en ziet een wetenschapper in een witte jas.");
-  console.log("Hij lijkt verbaasd dat je hier bent en stelt zich voor als Dr. Alexander. Hij legt uit dat je deelneemt aan een experiment om tijdreizen te testen.");
-  console.log("Wat wil je doen?");
-  console.log("1. Geloof Dr. Alexander en stel vragen over het experiment.");
-  console.log("2. Probeer te ontsnappen uit het laboratorium.");
+function enterTheVillage() {
+  console.log("Je wordt opgemerkt door de dorpelingen en ze nodigen je uit voor een maaltijd. Accepteer je?");
+  console.log("A. Ja, ga mee naar het dorp.");
+  console.log("B. Nee, bedank ze vriendelijk en ga verder.");
 
   const answer = getUserInput();
 
-  if (answer === '1') {
-    askAboutTimeTravelExperiment();
-  } else if (answer === '2') {
-    escapeFromLab();
+  if (answer === 'A') {
+    enterTheVillage();
+  } else if (answer === 'B') {
+    continueExploring();
   } else {
     invalidInput();
   }
 }
 
 function continueExploring() {
-  console.log("Je verlaat de verlichte kamer en gaat verder met je verkenningstocht. Terwijl je door de donkere gangen sluipt, kom je een mysterieuze deur tegen.");
-  console.log("Wat wil je doen?");
-  console.log("1. Probeer de deur te openen.");
-  console.log("2. Keer terug naar de verlichte kamer.");
+  console.log("Je bedankt de dorpelingen voor hun aanbod, maar besluit verder te gaan met je verkenningstocht.");
+  console.log("Terwijl je door het dorp loopt, hoor je geruchten over een plaatselijke smid die misschien je tijdmachine kan repareren.");
+  console.log("Ga je naar de smid?");
+  console.log("A. Ja, vraag hem om hulp.");
+  console.log("B. Nee, zoek naar andere oplossingen.");
 
   const answer = getUserInput();
 
-  if (answer === '1') {
-    openMysteriousDoor();
-  } else if (answer === '2') {
-    exploreEnvironment();
+  if (answer === 'A') {
+    visitTheBlacksmith();
+  } else if (answer === 'B') {
+    lookForOtherSolutions();
   } else {
     invalidInput();
   }
 }
 
-function waitForHelp() {
-  console.log("Je besluit te wachten in de hoop dat iemand je komt redden. Na enige tijd komt Dr. Alexander terug met medische apparatuur.");
-  console.log("Hij zegt dat het experiment fout is gegaan en dat ze je zullen helpen terwijl ze proberen de situatie te herstellen.");
-  console.log("Wat wil je doen?");
-  console.log("1. Vertrouw Dr. Alexander en laat je behandelen.");
-  console.log("2. Blijf argwanend en probeer te ontsnappen.");
+function observeMore() {
+  console.log("Je blijft observeren en leert steeds meer over het middeleeuwse leven. De mensen zijn vriendelijk en behulpzaam.");
+  console.log("Wat wil je nu doen?");
+  console.log("A. Blijf observeren en leren.");
+  console.log("B. Benader de dorpelingen en maak contact.");
 
   const answer = getUserInput();
 
-  if (answer === '1') {
-    trustDoctorAndReceiveTreatment();
-  } else if (answer === '2') {
-    escapeFromLab();
+  if (answer === 'A') {
+    keepObserving();
+  } else if (answer === 'B') {
+    enterTheVillage();
   } else {
     invalidInput();
   }
 }
 
-function askAboutTimeTravelExperiment() {
-  console.log("Je begint Dr. Alexander vragen te stellen over het tijdreisexperiment en probeert meer te weten te komen over hoe je hier bent beland.");
-  console.log("Hij legt uit dat het experiment niet helemaal is verlopen zoals gepland, en dat je nu vastzit in een andere tijdlijn.");
-  console.log("Wat wil je doen?");
-  console.log("1. Werk samen met Dr. Alexander om een oplossing te vinden.");
-  console.log("2. Probeer op eigen kracht een manier te vinden om naar huis terug te keren.");
+function keepObserving() {
+  console.log("Je blijft observeren en leert veel over de middeleeuwse samenleving. Je wordt een deel van de gemeenschap en leidt een vredig leven.");
+  console.log("Gefeliciteerd, je past je aan aan de tijdsperiode en leeft een gelukkig leven in de middeleeuwen.");
+  endGame(3);
+}
+
+function visitTheBlacksmith() {
+  console.log("Je besluit naar de smid te gaan en vraagt hem om hulp bij het repareren van je tijdmachine. Hij lijkt bereid om je te helpen, maar hij heeft zeldzame materialen nodig.");
+  console.log("Ga je deze materialen voor hem zoeken?");
+  console.log("A. Ja, ga op zoek naar de materialen.");
+  console.log("B. Nee, probeer een andere manier te vinden om je tijdmachine te repareren.");
 
   const answer = getUserInput();
 
-  if (answer === '1') {
-    cooperateWithDoctor();
-  } else if (answer === '2') {
-    findYourOwnWay();
+  if (answer === 'A') {
+    gatherMaterialsForSmith();
+  } else if (answer === 'B') {
+    lookForOtherSolutions();
   } else {
     invalidInput();
   }
 }
 
-function escapeFromLab() {
-  console.log("Je probeert te ontsnappen uit het laboratorium. Terwijl je door de gangen rent, kom je verschillende bewakers en camera's tegen.");
-  console.log("Het lijkt erop dat ze je niet willen laten gaan. Wat wil je doen?");
-  console.log("1. Ga door met je ontsnappingspoging en vecht tegen de bewakers.");
-  console.log("2. Keer terug naar Dr. Alexander en vraag om hulp bij je ontsnapping.");
+function lookForOtherSolutions() {
+  console.log("Je besluit op zoek te gaan naar andere oplossingen om je tijdmachine te repareren.");
+  console.log("Terwijl je verder zoekt, kom je een mysterieuze alchemist tegen. Hij beweert dat hij je kan helpen terug te keren naar je eigen tijd, maar hij heeft een andere tijdmachine nodig.");
+  console.log("Wat beslis je?");
+  console.log("A. Ga akkoord en help de alchemist met zijn tijdmachine.");
+  console.log("B. Blijf bij het repareren van je eigen tijdmachine.");
 
   const answer = getUserInput();
 
-  if (answer === '1') {
-    fightGuards();
-  } else if (answer === '2') {
-    seekHelpFromDoctor();
+  if (answer === 'A') {
+    helpTheAlchemist();
+  } else if (answer === 'B') {
+    stayWithBlacksmith();
   } else {
     invalidInput();
   }
 }
 
-function openMysteriousDoor() {
-  console.log("Je probeert de mysterieuze deur te openen en ontdekt een geheime kamer met allerlei technologische apparatuur.");
-  console.log("Dit zou weleens de sleutel kunnen zijn tot je ontsnapping. Wat wil je doen?");
-  console.log("1. Onderzoek de technologische apparatuur.");
-  console.log("2. Sluit de deur en keer terug naar de verlichte kamer.");
+function gatherMaterialsForSmith() {
+  console.log("Je hebt de materialen verzameld en de smid begint met de reparatiewerkzaamheden aan je tijdmachine.");
+  console.log("Terwijl je wacht, word je benaderd door een mysterieuze alchemist. Wat doe je?");
+  console.log("A. Praat met de alchemist en hoor wat hij te zeggen heeft.");
+  console.log("B. Negeer de alchemist en blijf bij de smid.");
 
   const answer = getUserInput();
 
-  if (answer === '1') {
-    investigateTechnology();
-  } else if (answer === '2') {
-    exploreEnvironment();
+  if (answer === 'A') {
+    talkToAlchemist();
+  } else if (answer === 'B') {
+    ignoreTheAlchemist();
   } else {
     invalidInput();
   }
 }
 
-function trustDoctorAndReceiveTreatment() {
-  console.log("Je besluit Dr. Alexander te vertrouwen en laat je behandelen. Hij vertelt je dat ze bezig zijn met het herstellen van het tijdreisexperiment.");
-  console.log("Na verloop van tijd word je teruggebracht naar je eigen tijdlijn en bevind je je weer in je vertrouwde omgeving.");
-  console.log("Gefeliciteerd, je hebt de tijdreisavontuur overleefd!");
-
-  playAgain();
-}
-
-function cooperateWithDoctor() {
-  console.log("Je besluit samen te werken met Dr. Alexander om een oplossing te vinden voor het tijdreisprobleem.");
-  console.log("Samen werken jullie aan het herstellen van het experiment en na verloop van tijd word je veilig teruggebracht naar je eigen tijdlijn.");
-  console.log("Gefeliciteerd, je hebt de tijdreisavontuur overleefd!");
-
-  playAgain();
-}
-
-function findYourOwnWay() {
-  console.log("Je gaat op zoek naar een manier om op eigen kracht terug te keren naar je eigen tijdlijn.");
-  console.log("Na veel avonturen en obstakels lukt het je eindelijk om terug te keren naar je eigen tijdlijn.");
-  console.log("Gefeliciteerd, je hebt de tijdreisavontuur overleefd!");
-
-  playAgain();
-}
-
-function fightGuards() {
-  console.log("Je probeert te vechten tegen de bewakers, maar ze overmeesteren je en brengen je terug naar de verlichte kamer.");
-  console.log("Je hebt gefaald in je ontsnappingspoging. Wat wil je nu doen?");
-  console.log("1. Probeer opnieuw te ontsnappen.");
-  console.log("2. Werk samen met Dr. Alexander om een oplossing te vinden.");
+function stayWithBlacksmith() {
+  console.log("Je besluit om bij de smid te blijven terwijl hij aan je tijdmachine werkt. Na enige tijd slaagt hij erin om je tijdmachine te repareren.");
+  console.log("Je activeert de tijdmachine en reist terug naar je eigen tijd. Maar er zijn problemen en je belandt in een dystopische toekomst. Wat doe je?");
+  console.log("A. Probeer terug te keren naar de middeleeuwen.");
+  console.log("B. Verken de dystopische toekomst om te begrijpen wat er is gebeurd.");
 
   const answer = getUserInput();
 
-  if (answer === '1') {
-    escapeFromLab();
-  } else if (answer === '2') {
-    seekHelpFromDoctor();
+  if (answer === 'A') {
+    tryToReturnToMedieval();
+  } else if (answer === 'B') {
+    exploreTheDystopianFuture();
   } else {
     invalidInput();
   }
 }
 
-function seekHelpFromDoctor() {
-  console.log("Je zoekt hulp bij Dr. Alexander en vraagt om zijn hulp bij je ontsnapping.");
-  console.log("Hij stemt ermee in om je te helpen en na een moeilijke ontsnappingspoging slagen jullie erin om te ontsnappen uit het laboratorium.");
-  console.log("Gefeliciteerd, je hebt de tijdreisavontuur overleefd!");
-
-  playAgain();
-}
-
-function investigateTechnology() {
-  console.log("Terwijl je de technologische apparatuur onderzoekt, ontdek je dat dit de apparatuur is waarmee ze tijdreizen uitvoeren.");
-  console.log("Je besluit het te activeren en terug te keren naar je eigen tijdlijn.");
-  console.log("Gefeliciteerd, je hebt de tijdreisavontuur overleefd!");
-
-  playAgain();
-}
-
-function goodEnding() {
-  console.log("Na al je avonturen en uitdagingen, slaag je erin om veilig terug te keren naar je eigen tijdlijn.");
-  console.log("Je bent opgelucht en beseft dat je dit onvergetelijke avontuur hebt overleefd.");
-  console.log("Gefeliciteerd, je hebt de tijdreisavontuur met een goed einde afgerond!");
-
-  playAgain();
-}
-
-function badEnding() {
-  console.log("Helaas is het je niet gelukt om te ontsnappen, en je blijft gevangen in deze vreemde tijdlijn.");
-  console.log("Je hebt gefaald in je pogingen om terug te keren naar je eigen tijd.");
-  console.log("Bedankt voor het spelen van het avontuur. Misschien kun je het de volgende keer opnieuw proberen.");
-
-  playAgain();
-}
-
-function playAgain() {
-  console.log("Wil je het avontuur opnieuw spelen?");
-  console.log("1. Ja");
-  console.log("2. Nee");
+function talkToAlchemist() {
+  console.log("Je besluit met de alchemist te praten en hoort wat hij te zeggen heeft. Hij beweert dat hij je kan helpen terug te keren naar je eigen tijd, maar hij heeft een andere tijdmachine nodig.");
+  console.log("Wat beslis je?");
+  console.log("A. Ga akkoord en help de alchemist met zijn tijdmachine.");
+  console.log("B. Blijf bij het repareren van je eigen tijdmachine.");
 
   const answer = getUserInput();
 
-  if (answer === '1') {
-    startGame();
+  if (answer === 'A') {
+    helpTheAlchemist();
+  } else if (answer === 'B') {
+    stayWithBlacksmith();
   } else {
-    console.log("Bedankt voor het spelen van het avontuur. Tot de volgende keer!");
+    invalidInput();
   }
+}
+
+function helpTheAlchemist() {
+  console.log("Je besluit de alchemist te helpen met zijn tijdmachine. Samen werken jullie aan de tijdmachine en slagen erin om deze te activeren.");
+  console.log("Nu moet je kiezen tussen de twee tijdmachines. Welke kies je?");
+  console.log("A. Gebruik de tijdmachine van de smid.");
+  console.log("B. Gebruik de tijdmachine van de alchemist.");
+
+  const answer = getUserInput();
+
+  if (answer === 'A') {
+    useSmithsTimeMachine();
+  } else if (answer === 'B') {
+    useAlchemistsTimeMachine();
+  } else {
+    invalidInput();
+  }
+}
+
+function useSmithsTimeMachine() {
+  console.log("Je gebruikt de tijdmachine van de smid en reist terug naar je eigen tijd. Deze keer lukt het en je bent veilig terug in je eigen tijd.");
+  console.log("Gefeliciteerd, je hebt je avontuur in de middeleeuwen overleefd en keert terug als een beroemde tijdreiziger.");
+  endGame(1);
+}
+
+function useAlchemistsTimeMachine() {
+  console.log("Je besluit de tijdmachine van de alchemist te gebruiken en activeert deze. Maar er zijn problemen en je belandt in een dystopische toekomst.");
+  console.log("Wat doe je?");
+  console.log("A. Probeer terug te keren naar de middeleeuwen.");
+  console.log("B. Verken de dystopische toekomst om te begrijpen wat er is gebeurd.");
+
+  const answer = getUserInput();
+
+  if (answer === 'A') {
+    tryToReturnToMedieval();
+  } else if (answer === 'B') {
+    exploreTheDystopianFuture();
+  } else {
+    invalidInput();
+  }
+}
+
+function tryToReturnToMedieval() {
+  console.log("Je probeert terug te keren naar de middeleeuwen en slaagt hierin. Je bevindt je weer in het middeleeuwse dorp.");
+  console.log("Wat is je volgende stap?");
+  console.log("A. Herstel je tijdmachine en keer terug naar je eigen tijd.");
+  console.log("B. Blijf en vecht met het verzet.");
+
+  const answer = getUserInput();
+
+  if (answer === 'A') {
+    repairYourTimeMachine();
+  } else   if (answer === 'B') {
+    stayAndFightWithResistance();
+  } else {
+    invalidInput();
+  }
+}
+
+function exploreTheDystopianFuture() {
+  console.log("Je besluit de dystopische toekomst te verkennen om te begrijpen wat er is gebeurd.");
+  console.log("Na enige tijd kom je een groep verzetsstrijders tegen. Sluit je je bij hen aan?");
+  console.log("A. Ja, sluit je aan bij het verzet.");
+  console.log("B. Nee, probeer een andere manier te vinden om naar je eigen tijd terug te keren.");
+
+  const answer = getUserInput();
+
+  if (answer === 'A') {
+    joinTheResistance();
+  } else if (answer === 'B') {
+    findAnotherWayBack();
+  } else {
+    invalidInput();
+  }
+}
+
+function joinTheResistance() {
+  console.log("Je sluit je aan bij het verzet en helpt hen bij hun strijd om de dystopische toekomst te verbeteren.");
+  console.log("Na enige tijd ontdek je een manier om terug te reizen naar de middeleeuwen. Wat beslis je?");
+  console.log("A. Keer terug naar de middeleeuwen.");
+  console.log("B. Blijf en vecht met het verzet.");
+
+  const answer = getUserInput();
+
+  if (answer === 'A') {
+    returnToMedieval();
+  } else if (answer === 'B') {
+    stayAndFightWithResistance();
+  } else {
+    invalidInput();
+  }
+}
+
+function returnToMedieval() {
+  console.log("Je keert terug naar de middeleeuwen en besluit je tijdmachine te herstellen en opnieuw te proberen naar je eigen tijd terug te keren.");
+  console.log("Lukt het deze keer?");
+  console.log("A. Ja, je keert terug naar je eigen tijd.");
+  console.log("B. Nee, je tijdmachine is nog steeds defect.");
+
+  const answer = getUserInput();
+
+  if (answer === 'A') {
+    repairYourTimeMachine();
+  } else if (answer === 'B') {
+    stayInMedievalEra();
+  } else {
+    invalidInput();
+  }
+}
+
+function stayAndFightWithResistance() {
+  console.log("Je besluit te blijven en te vechten met het verzet om de dystopische toekomst te verbeteren.");
+  console.log("Dankzij jullie inspanningen verbetert de situatie in de dystopische toekomst langzaam maar zeker.");
+  console.log("Je blijft in de toekomst om te helpen bij de wederopbouw van de samenleving.");
+  endGame(2);
+}
+
+function findAnotherWayBack() {
+  console.log("Je besluit een andere manier te vinden om naar je eigen tijd terug te keren.");
+  console.log("Na veel onderzoek en experimenten vind je een alternatieve methode om terug te reizen naar je eigen tijd.");
+  console.log("Je activeert de nieuwe tijdmachine en keert veilig terug naar je eigen tijd.");
+  console.log("Gefeliciteerd, je hebt een andere manier gevonden om naar huis te gaan.");
+  endGame(1);
+}
+
+function repairYourTimeMachine() {
+  console.log("Je herstelt je tijdmachine en probeert opnieuw terug te keren naar je eigen tijd.");
+  console.log("Deze keer lukt het en je keert veilig terug naar je eigen tijd.");
+  console.log("Gefeliciteerd, je bent terug in je eigen tijd en vertelt iedereen over je avontuur in de middeleeuwen.");
+  console.log("Je wordt een beroemde tijdreiziger.");
+  endGame(1);
+}
+
+function stayInMedievalEra() {
+  console.log("Je tijdmachine is nog steeds defect, maar je hebt nieuwe vrienden en een plek in de middeleeuwse samenleving gevonden.");
+  console.log("Je besluit in de middeleeuwen te blijven en een nieuw leven op te bouwen.");
+  console.log("Gefeliciteerd, je past je aan aan de tijdsperiode en leeft een gelukkig leven in de middeleeuwen.");
+  endGame(3);
+}
+
+function endGame(result) {
+  if (result === 1) {
+    console.log("Einde 1: Je keert terug naar je eigen tijd en vertelt iedereen over je avontuur in de middeleeuwen. Je wordt een beroemde tijdreiziger.");
+  } else if (result === 2) {
+    console.log("Einde 2: Je sluit je aan bij het verzet in de dystopische toekomst en helpt de wereld te verbeteren.");
+  } else if (result === 3) {
+    console.log("Einde 3: Je blijft in de middeleeuwen en leeft een gelukkig leven, je past je aan aan de tijdsperiode.");
+  } else {
+    console.log("Einde 4: Ondanks herhaalde pogingen lukt het niet om je tijdmachine te repareren. Je blijft vastzitten in de middeleeuwen en leeft een avontuurlijk maar uitdagend leven.");
+  }
+}
+
+function invalidInput() {
+  console.log("Ongeldige invoer. Kies een geldige optie.");
+  startGame();
 }
 
 function getUserInput() {
-  let answer = readlineSync.question('Welke keuze maak je? (1 / 2): ');
-  return answer;
+  const input = readlineSync.question("Jouw keuze: ").toUpperCase();
+  return input;
 }
 
 startGame();
